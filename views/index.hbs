@@ -3,19 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.4/dist/bootstrap-table.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap@4.3.1/dist/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap-table@1.15.4/dist/bootstrap-table.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    />
     <title>Activity Tracker</title>
   </head>
   <body>
     <div class="container">
-      <h1 class="my-5 text-center">Time tracking app</h1>
+      <h1 class="my-5 text-center">
+        Time tracking app
+      </h1>
       <div class="row">
         <div class="col-5">
           <canvas width="400" height="400" id="chart"></canvas>
         </div>
         <div class="col-7">
-          <h2 id="table-title">Select a chart to show data</h2>
+          <h2 id="table-title">
+            Select a chart to show data
+          </h2>
           <table id="table" class="table"></table>
         </div>
       </div>
@@ -24,7 +34,9 @@
     <script src="https://unpkg.com/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/chart.js@2.8.0/dist/Chart.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.15.4/dist/bootstrap-table.min.js"></script>
-    <script> const decodedJson = decodeURIComponent("{{{encodedJson}}}"); </script>
+    <script>
+      const decodedJson = decodeURIComponent("{{{encodedJson}}}");
+    </script>
     <script src="public/main.js"></script>
   </body>
 </html>

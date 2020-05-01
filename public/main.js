@@ -2,16 +2,16 @@
   const formatName = (value, row) =>
     row.url ? `<a target="_blank" href="${row.url}">${value}</a>` : value;
   const formatTime = (value) => secondsToHms(value);
-
   const secondsToHms = (d) => {
     d = Number(d);
     const h = Math.floor(d / 3600);
     const m = Math.floor((d % 3600) / 60);
     const s = Math.floor((d % 3600) % 60);
 
-    const hDisplay = h > 0 ? h + (h === 1 ? ' hour, ' : ' hours, ') : '';
-    const mDisplay = m > 0 ? m + (m === 1 ? ' minute, ' : ' minutes, ') : '';
-    const sDisplay = s > 0 ? s + (s === 1 ? ' second' : ' seconds') : '';
+    const hDisplay = h > 0 ? h + (h === 1 ? " hour, " : " hours, ") : "";
+    const mDisplay = m > 0 ? m + (m === 1 ? " minute, " : " minutes, ") : "";
+    const sDisplay = s > 0 ? s + (s === 1 ? " second, " : " seconds, ") : "";
+
     return hDisplay + mDisplay + sDisplay;
   };
 
@@ -19,11 +19,13 @@
     const r = Math.floor(Math.random() * 255);
     const g = Math.floor(Math.random() * 255);
     const b = Math.floor(Math.random() * 255);
-    return 'rgba(' + r + ',' + g + ',' + b + ', 0.5)';
+
+    return `rgba(${r},${g},${b},0.5)`;
   };
 
   const poolColors = (size) => {
     const pool = [];
+
     for (let i = 0; i < size; i++) {
       pool.push(dynamicColors());
     }
@@ -32,34 +34,34 @@
 
   const columns = [
     {
-      field: 'name',
-      title: 'name',
+      field: "name",
+      title: "name",
       formatter: formatName,
-      sortable: true
+      sortable: true,
     },
     {
-      field: 'time',
-      title: 'time',
+      field: "time",
+      title: "time",
       formatter: formatTime,
-      sortable: true
-    }
+      sortable: true,
+    },
   ];
 
   const chartData = JSON.parse(decodedJson);
-  const ctx = document.getElementById('chart').getContext('2d');
+  const ctx = document.getElementById("chart").getContext("2d");
 
   const renderTableData = (chart, columns) => {
-    const table = $('#table');
+    const table = $("#table");
 
-    $('#table-title').text(chart.title + ' (' + secondsToHms(chart.total) + ')');
+    $("table-title").text(`chart.title (${secondsToHms(chart.total)})`);
 
     if (table.children().length) {
-      return table.bootstrapTable('load', chart.data);
+      return table.bootstrapTable("load", chart.data);
     }
 
     table.bootstrapTable({
       columns,
-      data: chart.data
+      data: chart.data,
     });
   };
 
@@ -71,18 +73,18 @@
   };
 
   new Chart(ctx, {
-    type: 'doughnut',
+    type: "doughnut",
     data: {
       datasets: [
         {
           data: chartData.map((data) => data.total),
-          backgroundColor: poolColors(chartData.length)
-        }
+          backgroundColor: poolColors(chartData.length),
+        },
       ],
-      labels: chartData.map((chart) => chart.title)
+      labels: chartData.map((chart) => chart.title),
     },
     options: {
-      onClick: graphClickEvent
-    }
+      onClick: graphClickEvent,
+    },
   });
 })();
