@@ -10,7 +10,7 @@
 
     const hDisplay = h > 0 ? h + (h === 1 ? " hour, " : " hours, ") : "";
     const mDisplay = m > 0 ? m + (m === 1 ? " minute, " : " minutes, ") : "";
-    const sDisplay = s > 0 ? s + (s === 1 ? " second, " : " seconds, ") : "";
+    const sDisplay = s > 0 ? s + (s === 1 ? " second " : " seconds") : "";
 
     return hDisplay + mDisplay + sDisplay;
   };
@@ -53,7 +53,7 @@
   const renderTableData = (chart, columns) => {
     const table = $("#table");
 
-    $("table-title").text(`chart.title (${secondsToHms(chart.total)})`);
+    $("#table-title").text(`${chart.title} (${secondsToHms(chart.total)})`);
 
     if (table.children().length) {
       return table.bootstrapTable("load", chart.data);
