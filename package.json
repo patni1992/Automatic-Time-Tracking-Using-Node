@@ -19,7 +19,7 @@
   "homepage": "https://github.com/patni1992/Automatic-Time-Tracking-Using-Node#readme",
   "dependencies": {
     "active-win": "^6.1.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "fs-extra": "^9.0.0",
     "hbs": "^4.1.1",
     "lodash": "^4.17.15"
